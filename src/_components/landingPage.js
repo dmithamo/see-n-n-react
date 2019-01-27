@@ -1,16 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+
+// Import news container
+import Logo from './logo';
+import NavBar from './navBar';
+import NewsItemsContainer from './newsItemsContainer';
 
 const LandingPage = () => (
-  <div>
-    <ul>
-      <li>
-        <NavLink to="/about">Kenya Damu</NavLink>
-      </li>
-    </ul>
-    <h4>You landed here!</h4>
+  <div className="container-fluid">
+    <Logo />
+    <div className="row-grid">
+      <NavBar />
+      <NewsItemsContainer />
+    </div>
   </div>
 );
-
 
 export default LandingPage;
