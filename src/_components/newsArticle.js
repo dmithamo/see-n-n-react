@@ -10,21 +10,23 @@ const NewsArticle = (props) => {
     let month = splitIt[1];
     let dayte = splitIt[2];
     let timeFull = splitIt[4];
-    let shortForm = `${dayte}th ${month} ${year} ${timeFull}`;
+    let shortForm = `${dayte}th ${month} ${year} ${timeFull} GMT`;
     return shortForm;
   };
 
   const { article } = props;
   return (
     <div className="news-article">
-      <a className="article-title" href={`${article.url}`}>{`${article.title}`}</a>
+      <img className="article-img" src={article.urlToImage} alt="news pic here" />
       <div className="article-content">
+        <a className="article-title" href={`${article.url}`}>{`${article.title}`}</a>
         <p className="article-body">{`${article.content}`}</p>
         <div className="meta-data">
           <span>
             Published
             {` ${formatTime(article.publishedAt)} `}
           </span>
+          <br />
           <span>
             by
             {` ${article.author} `}
@@ -35,7 +37,7 @@ const NewsArticle = (props) => {
       </div>
     </div>
   );
-}
+};
 
 NewsArticle.propTypes = {
   article: PropTypes.object.isRequired,
