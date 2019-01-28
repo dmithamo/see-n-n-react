@@ -1,11 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+
+import Logo from './logo';
+import SearchBar from './searchBar';
+
 
 const NavBar = () => {
   return (
-    <ul className="nav nav-tabs navbar">
+    <ul className="header">
       <li>
-        <NavLink to="/about">About US</NavLink>
+        <Logo />
+      </li>
+      <li>
+        <SearchBar />
+      </li>
+      <li className="other-header-items">
+        <a className="about-us-nav" href="/about">About US</a>
       </li>
     </ul>
   );
