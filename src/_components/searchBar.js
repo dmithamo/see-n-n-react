@@ -15,7 +15,7 @@ const SearchBar = () => {
       document.querySelector("#search-bar").value = "";
       document.querySelector("#search-bar").blur();
       document.querySelector("#search-bar").nextElementSibling.classList.add("hidden");
-    };
+    }
   };
 
   const resetForm = (e) => {
