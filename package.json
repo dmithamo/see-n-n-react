@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
-    "lint:watch": "npm run lint -- --watch"
+    "lint:watch": "npm run lint -- --watch",
+    "build": "webpack --mode production",
+    "heroku-preinstall": "npm install --dev"
   },
   "repository": {
     "type": "git",
@@ -31,7 +33,11 @@
       ["@babel/plugin-proposal-class-properties", { "loose": true }]
     ]
   },
-  "devDependencies": {
+  "engines": {
+    "npm": "6.7.0",
+    "node": "11.6.0"
+  },
+  "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/preset-env": "^7.3.1",
@@ -56,6 +62,9 @@
     "redux": "^4.0.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "devDependencies": {
     "webpack-dev-server": "^3.1.14"
   }
 }
