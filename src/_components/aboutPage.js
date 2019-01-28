@@ -13,9 +13,9 @@ const AboutPage = () => {
           <h4>See NN</h4>
         </div>
         <p>
-          Built by consuming&nbsp;
+          Built by consuming the API at&nbsp;
           <a href="https://newsapi.org/">the NewsAPI.org</a>
-          &nbsp;API
+          &nbsp;
         </p>
         <p className="copyright">
           <a href="https://github.com/dmithamo1">&copy;2018&nbsp; dmithamo</a>

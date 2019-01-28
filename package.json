@@ -9,7 +9,11 @@
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
     "build": "webpack --mode production",
-    "heroku-preinstall": "npm install --dev"
+    "clean-public": "npm run remove-public && mkdir public",
+    "remove-public": "node_modules/.bin/rimraf ./public",
+    "build:html": "babel-node tools/buildHtml.js",
+    "prebuild": "npm-run-all clean-public lint build:html",
+    "postbuild": "babel-node tools/publicServer.js"
   },
   "repository": {
     "type": "git",
@@ -30,14 +34,19 @@
       "@babel/preset-react"
     ],
     "plugins": [
-      ["@babel/plugin-proposal-class-properties", { "loose": true }]
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ]
     ]
   },
   "engines": {
     "npm": "6.7.0",
     "node": "11.6.0"
   },
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/preset-env": "^7.3.1",
@@ -51,6 +60,7 @@
     "eslint-plugin-import": "^2.15.0",
     "eslint-plugin-jsx-a11y": "^6.2.0",
     "eslint-plugin-react": "^7.12.4",
+    "express": "^4.16.4",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
@@ -62,9 +72,6 @@
     "redux": "^4.0.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
-  },
-  "devDependencies": {
     "webpack-dev-server": "^3.1.14"
   }
 }
