@@ -6,14 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "lint": "node_modules/.bin/esw webpack.config.* src tools",
+    "lint": "node_modules/.bin/esw webpack.config.* src",
     "lint:watch": "npm run lint -- --watch",
     "build": "webpack --mode production",
-    "clean-public": "npm run remove-public && mkdir public",
-    "remove-public": "node_modules/.bin/rimraf ./public",
-    "build:html": "babel-node tools/buildHtml.js",
-    "prebuild": "npm-run-all clean-public lint build:html",
-    "postbuild": "babel-node tools/publicServer.js"
+    "postbuild": "babel-node dist/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -61,6 +57,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.0",
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
+    "html-webpack-plugin": "^3.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",

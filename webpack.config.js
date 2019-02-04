@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
@@ -24,6 +25,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({template: "./dist/index.html"}),
     new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
