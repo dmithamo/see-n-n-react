@@ -9,7 +9,6 @@
     "lint": "node_modules/.bin/esw webpack.config.* src",
     "lint:watch": "npm run lint -- --watch",
     "build": "webpack --mode production",
-    "postbuild": "babel-node dist/bundle.js",
     "heroku-postbuild": "webpack -p"
   },
   "repository": {
