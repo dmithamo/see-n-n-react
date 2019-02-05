@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "node ./server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src",
     "lint:watch": "npm run lint -- --watch",
     "build": "webpack --mode production",
-    "postbuild": "babel-node dist/bundle.js"
+    "postbuild": "babel-node dist/bundle.js",
+    "heroku-postbuild": "webpack -p"
   },
   "repository": {
     "type": "git",
